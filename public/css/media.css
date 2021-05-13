@@ -1,0 +1,64 @@
+@media (min-width: 480px) and (max-width: 1036px) {
+  .welcom-section__main-button {
+    font-size: 14px;
+    padding: 20px 30px;
+  }
+
+  .welcom-section__about-link {
+    font-size: 14px;
+  }
+
+  footer {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .footer__contacts {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  .contacts__link {
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+
+  .form__input {
+    width: 300px;
+  }
+
+  main, .recommendation, .cards, .stats, .stats__list, .edit-form, .card-creator, .card-creator__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stats {
+    margin-top: 10px;
+  }
+
+  .cards .card-item {
+    margin-right: 0px;
+  }
+
+  .edit-form button {
+    margin-left: 0px;
+  }
+
+  .card__button_big {
+    margin-top: 20px;
+  }
+
+  .edit-form {
+    margin-bottom: 10px;
+  }
+
+  .card-creator__back {
+    margin-top: 10px;
+  }
+
+  .process__card {
+    padding: 70px 120px;
+  }
+}

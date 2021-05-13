@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>Anki-app</title>
+</head>
+<body>
+    
+    <dialog id="dialog">
+        <form>
+            <fieldset>
+                <legend class="form__name">Log in</legend>
+                <input class="form__input" type="text" placeholder="Email">
+                <input class="form__input" type="password" placeholder="Password">
+                <button class="form__submit" type="submit">Sign in</button>
+            </fieldset>
+        </form>
+    </dialog>
+    <header>
+        <div class="logo">
+            <a href="main.html">Anki-app</a>
+        </div>
+        <div class="login-buttons">
+            <button class="login-buttons__sign-in">
+                sign in
+            </button>
+            <button onClick="location.href='registration.html'" class="login-buttons__sign-up" type="button">
+                sign up
+            </button>
+        </div>
+    </header>
+    <main>
+        <section class="welcom-section">
+            <button class="welcom-section__main-button" onClick="location.href='main.html'">Let's start</button>
+            <a class="welcom-section__about-link" href="#">about project</a>
+        </section>
+    </main>
+    <footer>
+        <div>2021 / All rights reserved</div>
+        <div class="footer__contacts">
+            Contacts:
+            <a class="contacts__link" href="#">Vkontakte</a>
+            <a class="contacts__link" href="#">Telegram</a>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        var element = document.getElementById('dialog');
+        element.showModal();
+    </script>
+</body>
+</html>
