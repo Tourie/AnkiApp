@@ -19,7 +19,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       localStorage.setItem('userId', user.uid);
 
       let userNameElement = document.getElementById('userName');
-      if (element != null) {
+      if (userNameElement != null) {
         userNameElement.innerHTML = user.displayName;
       }
     } else {

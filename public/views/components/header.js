@@ -14,8 +14,9 @@ let header = {
     after_render: async () => {
         let logoutButton = document.getElementById('logoutButton');
         logoutButton.addEventListener('click', function() {
-            firebase.auth().signOut().then(()=>{
-                window.location.hash = '/#/'
+            firebase.auth().signOut().then(() => {
+                localStorage.removeItem('userId');
+                window.location.replace('/');
             })
         })
     }
