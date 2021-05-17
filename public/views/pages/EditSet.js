@@ -3,7 +3,7 @@ import Utils from "./../../js/services/utils.js"
 let EditSet = {
     render : async () => {
         let view = `<h1>Editing set</h1>
-        <form class="edit-form">
+        <form class="edit-form" action="javascript:void(0);">
             <input id="setNameInput" class="form__input" type="text" placeholder="Set name">
             <button id="saveSetBtn" class="card__button card__button_big">Save name</button>
         </form>
@@ -23,7 +23,6 @@ let EditSet = {
         const setId = Utils.parseRequestURL().id;
         const saveSetBtn = document.getElementById('saveSetBtn');
         const userId = localStorage.getItem('userId');
-        const request = Utils.parseRequestURL();
 
         if(userId != null && setId != null) {
             database.ref(`users/${userId}/sets/${setId}`).on('value', (snapshot)=>{

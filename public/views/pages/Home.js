@@ -64,7 +64,11 @@ let Home = {
        return view
    }
    , after_render: async () => {
-
+    let userName = localStorage.getItem('userName');
+    if(userName != null) {
+        const userNameSpan = document.getElementById('userName');
+        userNameSpan.innerHTML = localStorage.getItem('userName')
+    }
    }
 
 }

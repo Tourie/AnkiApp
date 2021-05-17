@@ -17,7 +17,8 @@ var database = firebase.database();
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       localStorage.setItem('userId', user.uid);
-
+      localStorage.setItem('userName', user.displayName);
+      
       let userNameElement = document.getElementById('userName');
       if (userNameElement != null) {
         userNameElement.innerHTML = user.displayName;

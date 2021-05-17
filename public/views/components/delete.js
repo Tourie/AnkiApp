@@ -17,13 +17,21 @@ let Delete = {
             const request = Utils.parseRequestURL();
             const userId = localStorage.getItem('userId');
             if(request.resource == 'delete-set') {
-                database.ref('users/' + userId + '/sets/' + request.id + '/').remove().then(()=>{
-                    window.location.hash = '#/my-sets'
-                }).catch(function(error) {
-                    console.log("Remove failed: " + error.message)
-                  });;
+                deleter('sets', request);
+            }
+            if(request.resource == 'delete-card') {
+                deleter('cards', request);
             }
         });
+
+        function deleter(str, request) {
+            let userId = localStorage.getItem('userId');
+            database.ref(`users/${userId}/${str}/${request.id}/`).remove().then(()=>{
+                window.location.hash = `#/my-${str}`
+            }).catch(function(error) {
+                console.log("Remove failed: " + error.message)
+            });
+        }
 
         backButton.addEventListener('click', () => {
             history.back();

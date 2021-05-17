@@ -14,6 +14,9 @@ import MySets from "./views/pages/MySets.js"
 import Error404 from "./views/pages/Error404.js"
 import NewSet from "./views/pages/NewSet.js";
 import Delete from "./views/components/delete.js";
+import MyCards from "./views/pages/MyCards.js";
+import NewCard from "./views/pages/NewCard.js";
+import EditCard from "./views/pages/EditCard.js";
 
 const routes = {
     '/'             : Home,
@@ -21,9 +24,14 @@ const routes = {
     '/registration' : Registration,
     '/my-sets'      : MySets,
     '/new-set'      : NewSet,
+    '/my-cards'     : MyCards,
+    '/new-card'     : NewCard,
 
     '/my-sets/:id' : EditSet,
-    '/delete-set/:id': Delete
+    '/delete-set/:id': Delete,
+
+    '/my-cards/:id' : EditCard,
+    '/delete-card/:id': Delete
 };
 
 const router = async () => {
