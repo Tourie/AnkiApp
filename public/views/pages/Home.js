@@ -2,40 +2,11 @@ let Home = {
    render : async () => {
     let view; 
     if(localStorage.getItem('userId') != null){
-        view = `<h1>Hi, <span id="userName"></span></h1>
+        view = `
+        <h1>Hi, <span id="userName"></span></h1>
         <section class="recommendation">
                 <h2 class="recommendation__title">Recommended for repetition</h2>
                 <ul class="cards">
-                    <li class="card-item">
-                        <h3 class="card__title">Set name</h3>
-                        <button class="card__button card__button_repeat">repeat</button>
-                        <button class="card__button card__button_edit">edit</button>
-                        <button class="card__button card__button_delete">delete</button>
-                    </li>
-                    <li class="card-item">
-                        <h3 class="card__title">Set name</h3>
-                        <button class="card__button card__button_repeat">repeat</button>
-                        <button class="card__button card__button_edit">edit</button>
-                        <button class="card__button card__button_delete">delete</button>
-                    </li>
-                    <li class="card-item">
-                        <h3 class="card__title">Set name</h3>
-                        <button class="card__button card__button_repeat">repeat</button>
-                        <button class="card__button card__button_edit">edit</button>
-                        <button class="card__button card__button_delete">delete</button>
-                    </li>
-                    <li class="card-item">
-                        <h3 class="card__title">Set name</h3>
-                        <button class="card__button card__button_repeat">repeat</button>
-                        <button class="card__button card__button_edit">edit</button>
-                        <button class="card__button card__button_delete">delete</button>
-                    </li>
-                    <li class="card-item">
-                        <h3 class="card__title">Set name</h3>
-                        <button class="card__button card__button_repeat">repeat</button>
-                        <button class="card__button card__button_edit">edit</button>
-                        <button class="card__button card__button_delete">delete</button>
-                    </li>
                 </ul>
                 <button class="recommendation__repeat-all">I want to repeat all cards</button>
         </section>

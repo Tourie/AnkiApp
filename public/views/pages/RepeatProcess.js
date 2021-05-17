@@ -7,7 +7,13 @@ let EditSet = {
             <input id="setNameInput" class="form__input" type="text" placeholder="Set name">
             <button id="saveSetBtn" class="card__button card__button_big">Save name</button>
         </form>
-        <ul id="sets" class="cards">
+        <ul class="cards">
+            <li class="card-item">
+                <h3 class="card__title">Front name</h3>
+                <h4 class="card__subtitle">Back name</h4>
+                <button class="card__button card__button_edit">edit</button>
+                <button class="card__button card__button_delete">delete</button>
+            </li>
         </ul>
         `
         return view
@@ -31,24 +37,6 @@ let EditSet = {
                 createdAt: Date.now()
             });
         })
-
-        let sets = document.getElementById('sets');
-        database.ref('users/' + userId + '/cards/').on('value', (snapshot)=>{
-            for(let cardId in snapshot.val()){
-                const card = snapshot.child(cardId).val();
-                if (card.setId === setId){
-                    const setHTML = `
-                    <li class="card-item">
-                        <h3 class="card__title">${card.frontValue}</h3>
-                        <h4 class="card__subtitle">${card.backValue}</h4>
-                        <button class="card__button card__button_edit" onclick="window.location='/#/my-cards/${cardId}'">edit</button>
-                        <button class="card__button card__button_delete" onclick="window.location='/#/delete-card/${cardId}'">delete</button>
-                    </li>
-                    `
-                    sets.insertAdjacentHTML("afterbegin", setHTML);
-                }
-            }
-        });
     }
  
  }
