@@ -5,19 +5,30 @@ let header = {
             <a href="/#/">Anki-app</a>
         </div>
         <nav>
-            <a href="sets.html">My sets</a>
-            <a href="my-cards.html">My cards</a>
-            <a href="#" id="logoutButton">Log out</a>
+            <a id="mySetsButton">My sets</a>
+            <a id="myCardsButton">My cards</a>
+            <a id="logoutButton">Log out</a>
         </nav> `
         return view
     },
     after_render: async () => {
+        let mySetsButton = document.getElementById('mySetsButton');
+        let myCardsButton = document.getElementById('myCardsButton');
         let logoutButton = document.getElementById('logoutButton');
+
         logoutButton.addEventListener('click', function() {
             firebase.auth().signOut().then(() => {
                 localStorage.removeItem('userId');
-                window.location.replace('/');
+                window.location.hash = '/';
             })
+        });
+
+        mySetsButton.addEventListener('click', function () {
+            window.location.hash = '/my-sets'
+        })
+
+        myCardsButton.addEventListener('click', function () {
+            window.location.hash = '/my-cards'
         })
     }
 

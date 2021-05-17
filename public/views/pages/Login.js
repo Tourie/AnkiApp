@@ -5,8 +5,8 @@ let Login = {
             <form action="javascript:void(0);">
                 <fieldset>
                     <legend class="form__name">Log in</legend>
-                    <input id="emailInput" class="form__input" type="text" placeholder="Email">
-                    <input id="passwordInput" class="form__input" type="password" placeholder="Password">
+                    <input id="emailInput" class="form__input" type="text" placeholder="Email" required>
+                    <input id="passwordInput" class="form__input" type="password" placeholder="Password" required>
                     <button id="loginSubmit" class="form__submit" type="submit">Sign in</button>
                 </fieldset>
             </form>

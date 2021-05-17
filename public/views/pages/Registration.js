@@ -5,9 +5,9 @@ let Registration = {
             <form action="javascript:void(0);">
                 <fieldset>
                     <legend class="form__name">Registration</legend>
-                    <input id="nameInput" class="form__input" type="text" placeholder="Your name">
-                    <input id="emailInput" class="form__input" type="text" placeholder="Email">
-                    <input id="passwordInput" class="form__input" type="password" placeholder="Password">
+                    <input id="nameInput" class="form__input" type="text" placeholder="Your name" required>
+                    <input id="emailInput" class="form__input" type="text" placeholder="Email" required>
+                    <input id="passwordInput" class="form__input" type="password" placeholder="Password" required>
                     <button id="registrationSubmit" class="form__submit" type="submit">Sign up</button>
                 </fieldset>
             </form>

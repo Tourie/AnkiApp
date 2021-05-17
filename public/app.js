@@ -9,14 +9,21 @@ import Home from "./views/pages/Home.js"
 import EditSet from "./views/pages/EditSet.js"
 import Login from "./views/pages/Login.js"
 import Registration from "./views/pages/Registration.js"
+import MySets from "./views/pages/MySets.js"
 
 import Error404 from "./views/pages/Error404.js"
+import NewSet from "./views/pages/NewSet.js";
+import Delete from "./views/components/delete.js";
 
 const routes = {
     '/'             : Home,
-    '/edit-set'      : EditSet,
     '/login'        : Login,
-    '/registration' : Registration
+    '/registration' : Registration,
+    '/my-sets'      : MySets,
+    '/new-set'      : NewSet,
+
+    '/my-sets/:id' : EditSet,
+    '/delete-set/:id': Delete
 };
 
 const router = async () => {
