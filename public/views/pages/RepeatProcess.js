@@ -24,6 +24,7 @@ let RepeatProcess = {
     , after_render: async () => {
         const request = Utils.parseRequestURL();
         const userId = localStorage.getItem('userId');
+        let intervalId = 0;
         let cards = [];
         if(request.resource === 'repeat-set') {
             database.ref(`users/${userId}/cards/`).on('value', (snapshot) => {
@@ -58,13 +59,13 @@ let RepeatProcess = {
             });
         }
 
-        let intervalId;
         function mainLogic(cards) {
             let index = -1;
             shuffle(cards);
 
             let totalSeconds = 0;
             intervalId = setInterval(setTime, 1000);
+
             function setTime(){
                 ++totalSeconds;
                 let timer = document.getElementById('timeSeconds');
