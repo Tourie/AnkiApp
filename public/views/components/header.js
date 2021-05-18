@@ -19,6 +19,7 @@ let header = {
         logoutButton.addEventListener('click', function() {
             firebase.auth().signOut().then(() => {
                 localStorage.removeItem('userId');
+                localStorage.removeItem('userName');
                 window.location.hash = '/';
             })
         });

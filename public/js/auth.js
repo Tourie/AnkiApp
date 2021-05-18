@@ -25,6 +25,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       }
     } else {
       localStorage.removeItem('userId');
+      localStorage.removeItem('userName');
     }
   });
 
