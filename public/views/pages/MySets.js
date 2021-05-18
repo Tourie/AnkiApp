@@ -9,6 +9,7 @@ let MySets = {
         return view
     }
     , after_render: async () => {
+        document.title = 'My sets';
         let newSetButton = document.getElementById('newSetButton');
 
         newSetButton.addEventListener('click', ()=>{

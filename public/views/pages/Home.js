@@ -3,7 +3,7 @@ let Home = {
     let view; 
     if(localStorage.getItem('userId') != null){
         view = `
-        <h1>Hi, <span id="userName"></span></h1>
+        <h1>Welcome!</h1>
         <section class="recommendation">
                 <h2 class="recommendation__title" id="recomendationTitle">Recommended for repetition</h2>
                 <ul class="cards" id="recommendationList">
@@ -38,11 +38,6 @@ let Home = {
 
     let userName = localStorage.getItem('userName');
     if(userName != null) {
-        const userNameSpan = document.getElementById('userName');
-        if(userNameSpan != null) {
-            userNameSpan.innerHTML = localStorage.getItem('userName');
-        }
-
         const userId = localStorage.getItem('userId');
 
         getRecommendations();

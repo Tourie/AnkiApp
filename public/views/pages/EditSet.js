@@ -13,6 +13,7 @@ let EditSet = {
         return view
     }
     , after_render: async () => {
+        document.title = 'Edit set';
         const setNameInput = document.getElementById('setNameInput');
         const setId = Utils.parseRequestURL().id;
         const saveSetBtn = document.getElementById('saveSetBtn');

@@ -9,6 +9,7 @@ let MyCards = {
         return view
     }
     , after_render: async () => {
+        document.title = 'My cards';
         let newCardButton = document.getElementById('newCardButton');
 
         newCardButton.addEventListener('click', ()=>{

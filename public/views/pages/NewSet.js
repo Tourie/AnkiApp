@@ -14,6 +14,7 @@ let NewSet = {
         return view
     }
     , after_render: async () => {
+        document.title = 'New set';
         let dialog = document.getElementById('dialog');
         dialog.showModal();
 

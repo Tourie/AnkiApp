@@ -10,6 +10,8 @@ let Delete = {
         return view
     }
     , after_render: async () => {
+        document.title = 'Delete item';
+
         const deleteBtn = document.getElementById('deleteButton');
         const backButton = document.getElementById('backButton');
 

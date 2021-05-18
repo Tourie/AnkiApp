@@ -27,6 +27,7 @@ let EditCard = {
         return view
     }
     , after_render: async () => {
+        document.title = 'Edit card';
         const userId = localStorage.getItem('userId');
         let setsChoice = document.getElementById('setsChoice');
         database.ref(`users/${userId}/sets/`).on('value', (snapshot) => {
