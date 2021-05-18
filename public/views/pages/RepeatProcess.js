@@ -58,12 +58,13 @@ let RepeatProcess = {
             });
         }
 
+        let intervalId;
         function mainLogic(cards) {
             let index = -1;
             shuffle(cards);
 
             let totalSeconds = 0;
-            setInterval(setTime, 1000);
+            intervalId = setInterval(setTime, 1000);
             function setTime(){
                 ++totalSeconds;
                 let timer = document.getElementById('timeSeconds');
@@ -121,6 +122,7 @@ let RepeatProcess = {
                 }
 
                 window.location.hash = '/';
+                clearInterval(intervalId)
             }
 
             return index;
