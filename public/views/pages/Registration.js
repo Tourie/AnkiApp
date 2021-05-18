@@ -29,6 +29,10 @@ let Registration = {
             let emailInput = document.getElementById('emailInput');
             let passwordInput = document.getElementById('passwordInput');
 
+            if(nameInput.value == '') {
+                return;
+            }
+
             firebase.auth().createUserWithEmailAndPassword(emailInput.value, passwordInput.value)
             .then((userCredential) => {
                 let currentUser = userCredential.user;
