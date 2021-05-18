@@ -14,13 +14,13 @@ let Home = {
             <h2 class="stats__title">My statistics <span> / at this day</span></h2>
             <ul class="stats__list">
                 <li class="stats__item">
-                    <p class="stats__item-description">Cards completed: <span>10</span></p>
+                    <p class="stats__item-description">Cards completed: <span id="cardsCompleted"></span></p>
                 </li>
                 <li class="stats__item">
-                    <p class="stats__item-description">Accuracy: <span>80%</span></p>
+                    <p class="stats__item-description">Accuracy: <span><span id="accuracy"></span>%</span></p>
                 </li>
                 <li class="stats__item">
-                    <p class="stats__item-description">Time spent: <span>100 Min</span></p>
+                    <p class="stats__item-description">Time spent: <span><span id="timeSpent"></span> Sec</span></p>
                 </li>
             </ul>
         </section> 
@@ -35,10 +35,54 @@ let Home = {
        return view
    }
    , after_render: async () => {
+
     let userName = localStorage.getItem('userName');
     if(userName != null) {
         const userNameSpan = document.getElementById('userName');
-        userNameSpan.innerHTML = localStorage.getItem('userName')
+        if(userNameSpan != null) {
+            userNameSpan.innerHTML = localStorage.getItem('userName');
+        }
+
+        const userId = localStorage.getItem('userId');
+    
+        let dateNow = new Date(Date.now());
+        let date = dateNow.getDate()  + "-" + (dateNow.getMonth()+1) + "-" + dateNow.getFullYear();
+        database.ref(`users/${userId}/stats/${date}`).on('value', (snapshot) => {
+            let data = snapshot.val();
+            if (data == null){
+                let dailyStatsRef = database.ref(`users/${userId}/stats/`);
+                dailyStatsRef.child(date).set({
+                    cardsCompleted: 0,
+                    okCards: 0,
+                    timeSpent: 0
+                })
+
+                setStatsView();
+            }
+            else {
+                setStatsView();
+            }
+            
+            function setStatsView() {
+                database.ref(`users/${userId}/stats/${date}`).on('value', (snapshot) => {
+                    let stats = snapshot.val();
+                    
+                    const cardsCompleted = document.getElementById('cardsCompleted');
+                    cardsCompleted.innerText = stats.cardsCompleted;
+
+                    const accuracy = document.getElementById('accuracy');
+                    if (stats.cardsCompleted != 0){
+                        accuracy.innerText = parseFloat((stats.okCards / stats.cardsCompleted) * 100).toFixed(1);
+                    } 
+                    else{
+                        accuracy.innerText = 0;
+                    }
+
+                    const timeSpent = document.getElementById('timeSpent');
+                    timeSpent.innerText = stats.timeSpent;
+                });
+            }
+        }); 
     }
    }
 

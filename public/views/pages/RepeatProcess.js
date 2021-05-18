@@ -70,7 +70,9 @@ let RepeatProcess = {
                 timer.innerText = totalSeconds;
             }
 
-            index = getNewCard(cards, index);
+            let okCards = 0;
+
+            index = getNewCard(cards, index, okCards, totalSeconds);
 
             const allCardsNum = document.getElementById('cards-all-num');
             allCardsNum.innerText = cards.length;
@@ -84,16 +86,17 @@ let RepeatProcess = {
 
             const okBtn = document.getElementById('main-process__button_ok');
             okBtn.addEventListener('click', () => {
-                index = getNewCard(cards, index);
+                okCards++;
+                index = getNewCard(cards, index, okCards, totalSeconds);
             })
 
             const failBtn = document.getElementById('main-process__button_fail');
             failBtn.addEventListener('click', () => {
-                index = getNewCard(cards, index);
+                index = getNewCard(cards, index, okCards, totalSeconds);
             })
         }
 
-        function getNewCard(cards, index) {
+        function getNewCard(cards, index, okCards, totalSeconds) {
             index++;
 
             const cardPassedNum = document.getElementById('cards-passed-num');
@@ -105,6 +108,14 @@ let RepeatProcess = {
                 toCheckState();
             }
             else {
+                let dateNow = new Date(Date.now());
+                let date = dateNow.getDate()  + "-" + (dateNow.getMonth()+1) + "-" + dateNow.getFullYear();
+                let statsRef = database.ref(`users/${userId}/stats/${date}`);
+                
+                statsRef.child('cardsCompleted').set(firebase.database.ServerValue.increment(cards.length));
+                statsRef.child('okCards').set(firebase.database.ServerValue.increment(okCards));
+                statsRef.child('timeSpent').set(firebase.database.ServerValue.increment(totalSeconds));
+                
                 window.location.hash = '/';
             }
 
