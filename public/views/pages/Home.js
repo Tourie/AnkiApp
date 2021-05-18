@@ -5,8 +5,8 @@ let Home = {
         view = `
         <h1>Hi, <span id="userName"></span></h1>
         <section class="recommendation">
-                <h2 class="recommendation__title">Recommended for repetition</h2>
-                <ul class="cards">
+                <h2 class="recommendation__title" id="recomendationTitle">Recommended for repetition</h2>
+                <ul class="cards" id="recommendationList">
                 </ul>
                 <button class="recommendation__repeat-all" onclick="window.location='/#/repeat-allcards/'">I want to repeat all cards</button>
         </section>
@@ -44,6 +44,8 @@ let Home = {
         }
 
         const userId = localStorage.getItem('userId');
+
+        getRecommendations();
     
         let dateNow = new Date(Date.now());
         let date = dateNow.getDate()  + "-" + (dateNow.getMonth()+1) + "-" + dateNow.getFullYear();
@@ -82,7 +84,46 @@ let Home = {
                     timeSpent.innerText = stats.timeSpent;
                 });
             }
-        }); 
+        });
+        
+        function getRecommendations() {
+            const recomendationTitle = document.getElementById('recomendationTitle');
+
+            database.ref('users/' + userId + '/sets/').on('value', (snapshot)=>{
+                let sets = []
+                for(let setId in snapshot.val()){
+                    const set = snapshot.child(setId).val();
+                    sets.push({
+                        setId: setId,
+                        setName: set.setName,
+                        lastUsed: set.lastUsed
+                    });
+                }
+
+                if(sets.length === 0) {
+                    recomendationTitle.innerText = 'Nothing to recommend at the moment'
+                }
+                else {
+                    sets.sort((a,b) => a.lastUsed < b.lastUsed ? 1 : -1);
+                    sets = sets.slice(-4);
+
+                    const recommendationList = document.getElementById('recommendationList');
+
+                    for(let set of sets){
+                        const setHTML = `
+                        <li class="card-item">
+                            <h3 class="card__title">${set.setName}</h3>
+                            <button class="card__button card__button_repeat" onclick="window.location='/#/repeat-set/${set.setId}'">repeat</button>
+                            <button class="card__button card__button_edit" onclick="window.location='/#/my-sets/${set.setId}'">edit</button>
+                            <button class="card__button card__button_delete" onclick="window.location='/#/delete-set/${set.setId}'">delete</button>
+                        </li>
+                        `
+                        recommendationList.insertAdjacentHTML("afterbegin", setHTML);
+                    }
+                    
+                }
+            });
+        }
     }
    }
 

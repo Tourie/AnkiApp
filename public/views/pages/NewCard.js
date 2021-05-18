@@ -42,7 +42,7 @@ let NewCard = {
             let frontValue = document.getElementById('frontValueInput').value;
             let backValue = document.getElementById('backValueInput').value;
             const userId = localStorage.getItem('userId');
-            if (userId != null) {
+            if (userId != null && frontValue != '' && backValue != '') {
                 let cardsRef = database.ref('/users/' + userId + '/cards/');
                 const key = cardsRef.push({
                     frontValue: frontValue,

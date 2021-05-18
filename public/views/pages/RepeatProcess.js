@@ -116,6 +116,10 @@ let RepeatProcess = {
                 statsRef.child('okCards').set(firebase.database.ServerValue.increment(okCards));
                 statsRef.child('timeSpent').set(firebase.database.ServerValue.increment(totalSeconds));
                 
+                if(request.resource === 'repeat-set'){
+                    database.ref(`users/${userId}/sets/${request.id}`).child('lastUsed').set(Date.now())
+                }
+
                 window.location.hash = '/';
             }
 

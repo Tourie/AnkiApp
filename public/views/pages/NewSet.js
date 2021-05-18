@@ -21,12 +21,13 @@ let NewSet = {
         setSubmitBtn.addEventListener('click', () => {
             const setNameInput = document.getElementById('setNameInput');
             const userId = localStorage.getItem('userId');
-            if (userId != null) {
+            if (userId != null && setNameInput.value != '') {
                 let setsRef = database.ref('/users/' + userId + '/sets/');
                 const key = setsRef.push({
                     setName: setNameInput.value,
                     creator: userId,
-                    createdAt: Date.now()
+                    createdAt: Date.now(),
+                    lastUsed: 0
                 }).key;
 
                 window.location.hash = '/my-sets/' + key;
