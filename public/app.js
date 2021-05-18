@@ -17,6 +17,7 @@ import Delete from "./views/components/delete.js";
 import MyCards from "./views/pages/MyCards.js";
 import NewCard from "./views/pages/NewCard.js";
 import EditCard from "./views/pages/EditCard.js";
+import RepeatProcess from "./views/pages/RepeatProcess.js";
 
 const routes = {
     '/'             : Home,
@@ -26,6 +27,8 @@ const routes = {
     '/new-set'      : NewSet,
     '/my-cards'     : MyCards,
     '/new-card'     : NewCard,
+    '/repeat-set/:id':  RepeatProcess,
+    '/repeat-allcards': RepeatProcess,
 
     '/my-sets/:id' : EditSet,
     '/delete-set/:id': Delete,

@@ -8,7 +8,7 @@ let Home = {
                 <h2 class="recommendation__title">Recommended for repetition</h2>
                 <ul class="cards">
                 </ul>
-                <button class="recommendation__repeat-all">I want to repeat all cards</button>
+                <button class="recommendation__repeat-all" onclick="window.location='/#/repeat-allcards/'">I want to repeat all cards</button>
         </section>
         <section class="stats">
             <h2 class="stats__title">My statistics <span> / at this day</span></h2>

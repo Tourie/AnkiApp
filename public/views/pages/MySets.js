@@ -24,7 +24,7 @@ let MySets = {
                 const setHTML = `
                 <li class="card-item">
                     <h3 class="card__title">${setRef.setName}</h3>
-                    <button class="card__button card__button_repeat">repeat</button>
+                    <button class="card__button card__button_repeat" onclick="window.location='/#/repeat-set/${setId}'">repeat</button>
                     <button class="card__button card__button_edit" onclick="window.location='/#/my-sets/${setId}'">edit</button>
                     <button class="card__button card__button_delete" onclick="window.location='/#/delete-set/${setId}'">delete</button>
                 </li>

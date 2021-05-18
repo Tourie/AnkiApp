@@ -37,20 +37,18 @@ let Registration = {
                     displayName: nameInput.value
                 }).then(() => {
                     firebase.database().ref('users/' +  currentUser.uid + '/userInformation/').set({
-                        registrationDate : (new Date()).getFullYear()
+                        registrationDate : Date.now()
                     }).then(() => {
                         localStorage.setItem('userId', currentUser.uid);
                         window.location.hash = '/';
                     })
                 }).catch(function (error) {
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
+                    console.log(error.message);
                 });
 
             })
             .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
+                console.log(error.message);
             });
         }
     }

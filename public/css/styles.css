@@ -449,6 +449,10 @@ h2 {
     flex-direction: column;
 }
 
+.process__title-item .all-cards-num {
+    margin: 0px;
+}
+
 .process__title {
     display: flex;
     align-items: center;
@@ -495,8 +499,9 @@ h2 {
 .main-process__button_fail {
     background-color: #FBB2B2;
     padding: 0px;
-    width: 150px;
-    height: 50px;
+    width: 120px;
+    height: 40px;
+    margin-right: 10px;
 }
 
 .main-process__button_fail:hover {
@@ -506,8 +511,9 @@ h2 {
 .main-process__button_ok {
     background-color: #B2FBB5;
     padding: 0px;
-    width: 150px;
-    height: 50px;
+    width: 120px;
+    height: 40px;
+    margin-right: 10px;
 }
 
 .main-process__button_ok:hover {
@@ -515,7 +521,7 @@ h2 {
 }
 
 .main-process__button-group {
-    display: flex;
+    display: none;
     justify-content: space-between;
 }
 
@@ -554,3 +560,4 @@ h2 {
   .overlay a:hover, .overlay a:focus {
     color: #f1f1f1;
   }
+  
