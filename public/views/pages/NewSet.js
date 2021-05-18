@@ -31,7 +31,6 @@ let NewSet = {
 
                 window.location.hash = '/my-sets/' + key;
             }
-           
         })
         
     }

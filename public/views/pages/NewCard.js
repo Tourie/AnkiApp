@@ -16,6 +16,7 @@ let NewCard = {
             <section class="card-creator__collections">
                 <label>Select set:</label>
                 <select class="collections__choice" id="setsChoice">
+                    <option id="no set" value="no set">No set</option>
                 </select>
             </section>
             <button class="form__submit" type="submit" id="saveButton">Save</button>
@@ -46,7 +47,7 @@ let NewCard = {
                 const key = cardsRef.push({
                     frontValue: frontValue,
                     backValue: backValue,
-                    setId: setsChoice.value,
+                    setId: setsChoice.value ? setsChoice.value : 0,
                     creator: userId,
                     createdAt: Date.now()
                 }).key;
