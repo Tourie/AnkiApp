@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,27 +25,23 @@
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
     -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <script defer src="/__/firebase/init.js"></script>
+
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script deffer src="js/auth.js"></script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="main.html">Anki-app</a>
-        </div>
-        <div class="login-buttons">
-            <button class="login-buttons__sign-in">
-                sign in
-            </button>
-            <button onClick="location.href='registration.html'" class="login-buttons__sign-up" type="button">
-                sign up
-            </button>
-        </div>
+    <header id="header_container">
     </header>
-    <main>
-        <section class="welcom-section">
+    <main id="page_container">
+        <!-- <section class="welcom-section">
             <button class="welcom-section__main-button" onClick="location.href='main.html'">Let's start</button>
             <a class="welcom-section__about-link" href="#">about project</a>
-        </section>
+        </section> -->
     </main>
     <footer>
         <div>2021 / All rights reserved</div>
@@ -54,25 +51,17 @@
             <a class="contacts__link" href="#">Telegram</a>
         </div>
     </footer>
-
-    <script>
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-}
-
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
-</script>
+    <script src="app.js" type="module"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/8.4.1/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="/__/firebase/8.4.1/firebase-analytics.js"></script>
+    <scrip src="/__/firebase/8.4.1/firebase-analytics.js"></scrip>
 
     <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
+    <scrip src="/__/firebase/init.js"></scrip>
+
 </body>
 </html>

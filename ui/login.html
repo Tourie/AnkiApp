@@ -11,24 +11,12 @@
     <title>Anki-app</title>
 </head>
 <body>
-    
-    <dialog id="dialog">
-        <form>
-            <fieldset>
-                <legend class="form__name">Registration</legend>
-                <input class="form__input" type="text" placeholder="Your name">
-                <input class="form__input" type="text" placeholder="Email">
-                <input class="form__input" type="password" placeholder="Password">
-                <button class="form__submit" type="submit">Sign up</button>
-            </fieldset>
-        </form>
-    </dialog>
     <header>
         <div class="logo">
             <a href="main.html">Anki-app</a>
         </div>
         <div class="login-buttons">
-            <button class="login-buttons__sign-in" onClick="location.href='login.html'">
+            <button class="login-buttons__sign-in">
                 sign in
             </button>
             <button onClick="location.href='registration.html'" class="login-buttons__sign-up" type="button">
@@ -37,6 +25,16 @@
         </div>
     </header>
     <main>
+        <dialog id="dialog">
+            <form>
+                <fieldset>
+                    <legend class="form__name">Log in</legend>
+                    <input class="form__input" type="text" placeholder="Email">
+                    <input class="form__input" type="password" placeholder="Password">
+                    <button class="form__submit" type="submit">Sign in</button>
+                </fieldset>
+            </form>
+        </dialog>
         <section class="welcom-section">
             <button class="welcom-section__main-button" onClick="location.href='main.html'">Let's start</button>
             <a class="welcom-section__about-link" href="#">about project</a>
